@@ -17,5 +17,11 @@ RSpec.describe 'As a visitor' do
       expect(page).to have_content(@luna.house)
       expect(page).to have_content(@luna.age)
     end
+
+    it "I see the average age of all students" do
+      visit '/students'
+
+      expect(page).to have_content("Average Age: 13.67")
+    end
   end
 end
