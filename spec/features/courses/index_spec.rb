@@ -32,8 +32,8 @@ RSpec.describe 'As a visitor' do
     it "I see a list of students with age and house" do
       visit '/courses'
 
-      expect(page).to have_content("#{dada.name}: 3")
-      expect(page).to have_content("#{potions.name}: 2")
+      expect(page).to have_content("#{@dada.name}: 3")
+      expect(page).to have_content("#{@potions.name}: 2")
     end
   end
 end
