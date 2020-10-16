@@ -29,11 +29,29 @@ RSpec.describe 'As a visitor' do
         course_id: @dada.id
       )
     end
+
     it "I see a list of students with age and house" do
       visit '/courses'
 
       expect(page).to have_content("#{@dada.name}: 3")
       expect(page).to have_content("#{@potions.name}: 2")
+    end
+
+    it "I see the list of courses alpabetically with students alphabetically" do
+      visit '/courses'
+
+      expect(page.all('p')[0]).to have_content(@dada.name)
+      expect(page.all('p')[1]).to have_content(@potions.name)
+      within("#students-#{@dada.name}") do
+        expect(page.all('li')[0]).to have_content(@draco.name)
+        expect(page.all('li')[1]).to have_content(@harry.name)
+        expect(page.all('li')[2]).to have_content(@luna.name)
+      end
+      within("#students-#{@potions.name}") do
+        expect(page.all('li')[0]).to have_content(@draco.name)
+        expect(page.all('li')[1]).to have_content(@harry.name)
+      end
+
     end
   end
 end
