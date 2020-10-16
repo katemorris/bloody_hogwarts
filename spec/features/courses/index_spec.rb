@@ -42,12 +42,12 @@ RSpec.describe 'As a visitor' do
 
       expect(page.all('p')[0]).to have_content(@dada.name)
       expect(page.all('p')[1]).to have_content(@potions.name)
-      within("#students-#{@dada.name}") do
+      within("#students-#{@dada.id}") do
         expect(page.all('li')[0]).to have_content(@draco.name)
         expect(page.all('li')[1]).to have_content(@harry.name)
         expect(page.all('li')[2]).to have_content(@luna.name)
       end
-      within("#students-#{@potions.name}") do
+      within("#students-#{@potions.id}") do
         expect(page.all('li')[0]).to have_content(@draco.name)
         expect(page.all('li')[1]).to have_content(@harry.name)
       end
