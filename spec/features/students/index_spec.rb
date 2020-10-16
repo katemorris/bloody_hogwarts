@@ -23,5 +23,13 @@ RSpec.describe 'As a visitor' do
 
       expect(page).to have_content("Average Age: 13.67")
     end
+
+    it "I see the list of students alpabetically" do
+      visit '/students'
+
+      expect(page.all('li')[0]).to have_content(@draco.name)
+      expect(page.all('li')[1]).to have_content(@harry.name)
+      expect(page.all('li')[2]).to have_content(@luna.name)
+    end
   end
 end
