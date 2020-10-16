@@ -43,4 +43,13 @@ RSpec.describe Course, type: :model do
       expect(@potions.num_students).to eq(2)
     end
   end
+
+  describe 'class methods' do
+    it 'alpha' do
+      @dada = Course.create(name: 'Defense Against the Dark Arts')
+      @potions = Course.create(name: 'Potions')
+      @arithmancy = Course.create(name: 'Arithmancy')
+      expect(Course.alpha).to eq([@arithmancy, @dada, @potions])
+    end
+  end
 end
