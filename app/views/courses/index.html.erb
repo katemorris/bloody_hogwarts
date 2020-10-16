@@ -1,3 +1,11 @@
-<% @courses.each do |course| %>
+
+<% @courses.alpha.each do |course| %>
 <p><%= course.name %>: <%= course.num_students %></p>
+<div id="students-<%= course.id %>">
+  <ul>
+    <% course.students.alpha.each do |student| %>
+    <li><%= student.name %></li>
+    <% end  %>
+  </ul>
+</div>
 <% end  %>
