@@ -23,4 +23,12 @@ RSpec.describe Student, type: :model do
     end
   end
 
+  describe 'class methods' do
+    it 'alpha' do
+      harry = Student.create(name: 'Harry Potter', age: 14, house: 'Gryffindor')
+      draco = Student.create(name: 'Draco Malfoy', age: 14, house: 'Slytherin')
+      luna = Student.create(name: 'Luna', age: 13, house: 'Ravenclaw')
+      expect(Student.alpha).to eq([draco, harry, luna])
+    end
+  end
 end
